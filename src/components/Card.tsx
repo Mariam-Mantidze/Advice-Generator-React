@@ -1,15 +1,46 @@
 import styled from "styled-components";
+import { useState } from "react";
+import { useEffect } from "react";
+
+interface IAdviceTypes {
+  slip: {
+    id: number;
+    advice: string;
+  };
+}
 
 export default function Card() {
+  const [advice, setAdvice] = useState<IAdviceTypes>();
+  const [count, setCount] = useState(0);
+
+  const handleClick = () => {
+    setCount(count + 1);
+  };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(`https://api.adviceslip.com/advice
+          `);
+        const data = await response.json();
+
+        if (!data) {
+          throw new Error("Something went wrong!");
+        }
+        setAdvice(data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchData();
+  }, [count]);
   return (
     <MainCard>
       <h2 id="advice-id">
-        ADVICE <span id="number">#117</span>
+        ADVICE <span id="number">#{advice?.slip.id}</span>
       </h2>
-      <p id="quote">
-        “It is easy to sit up and take notice, what's difficult is getting up
-        and taking action.”
-      </p>
+      <p id="quote">"{advice?.slip.advice}"</p>
       <img
         className="divider mobile"
         src="./images/pattern-divider-mobile.svg"
@@ -21,7 +52,7 @@ export default function Card() {
         alt="divider with two horizontal lines and two paralel lines in between"
       />
 
-      <button id="dice-box">
+      <button onClick={handleClick} id="dice-box">
         <img src="./images/icon-dice.svg" alt="dice icon" />
       </button>
     </MainCard>
