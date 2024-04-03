@@ -1,30 +1,52 @@
-# React + TypeScript + Vite
+# Advice App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Description
 
-Currently, two official plugins are available:
+The Advice App is a simple React application that displays random pieces of advice fetched from an external API. This project is one of my first experiences using TypeScript with React, as well as my introduction to fetching data from an external source and using the `useEffect` hook for side effects.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- Displays a random piece of advice fetched from the Advice Slip API.
+- Allows users to fetch a new piece of advice by clicking a button.
+- Utilizes TypeScript for type safety and better code quality.
+- Responsive design for both mobile and desktop views.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Technologies Used
 
-- Configure the top-level `parserOptions` property like this:
+- React
+- TypeScript
+- styled-components
+- Fetch API
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+## What I Learned
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- **TypeScript with React:** Learned how to use TypeScript in a React project to enforce type safety and improve code readability.
+- **Fetching Data:** Gained experience fetching data from an external API using the Fetch API and handling asynchronous operations in React.
+- **React `useEffect` Hook:** Learned how to use the `useEffect` hook to perform side effects, such as fetching data, in a functional component.
+- **Styled-components:** Enhanced my skills in using styled-components for styling React components and creating a responsive design.
+
+## Future Improvements
+
+- Implement error handling for the API requests.
+- Add loading indicators while the data is being fetched.
+- Introduce more interactive elements or animations to enhance user engagement.
+
+## Installation
+
+To run this project locally, follow these steps:
+
+1. Clone the repository:
+
+- git clone https://github.com/your-username/advice-app.git
+
+2. Navigate to the project directory:
+
+- cd advice-app
+
+3. Install the dependencies:
+
+- npm install
+
+4. Start the development server:
+
+- npm start
